@@ -23,6 +23,10 @@
       return table;
     }
 
+    function circlePosition(r, angle) {
+      return { A: r * Math.cos(angle), B: r * Math.sin(angle) };
+    }
+
     function createColorMap() {
       bgDarkL = fgLightL = 10;
       selDarkL = 20;
@@ -35,20 +39,16 @@
 
       regularL = 60;
       brightL = 80;
-      // 1
-      magenta = { A: 100, B: 0 };
-      // 2
-      red = { A: 100, B: 100 };
-      // 3
-      yellow = { A: 0, B: 100 };
-      // 4
-      green = { A: -100, B: 100 };
-      // 5
-      cyan = { A: -100, B: 0 };
-      // 6
-      blue = { A: -100, B: -100 };
-      // 7: 0, -100: blue
-      // 8: 100, -100: magenta
+
+      startAngle = 0.5;
+      angleStep = 2.0 * Math.PI / 6.0;
+      radius = 100;
+      red = circlePosition(radius, startAngle + 0 * angleStep);
+      yellow = circlePosition(radius, startAngle + 1 * angleStep);
+      green = circlePosition(radius, startAngle + 2 * angleStep);
+      cyan = circlePosition(radius, startAngle + 3 * angleStep);
+      blue = circlePosition(radius, startAngle + 4 * angleStep);
+      magenta = circlePosition(radius, startAngle + 5 * angleStep);
 
       return {
         black: d3.lab(blackL, 0, 0).hex(),
