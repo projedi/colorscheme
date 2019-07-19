@@ -36,41 +36,35 @@
       regularL = 60;
       brightL = 80;
       // 1
-      magentaA = 100;
-      magentaB = 0;
+      magenta = { A: 100, B: 0 };
       // 2
-      redA = 100;
-      redB = 100;
+      red = { A: 100, B: 100 };
       // 3
-      yellowA = 0;
-      yellowB = 100;
+      yellow = { A: 0, B: 100 };
       // 4
-      greenA = -100;
-      greenB = 100;
+      green = { A: -100, B: 100 };
       // 5
-      cyanA = -100;
-      cyanB = 0;
+      cyan = { A: -100, B: 0 };
       // 6
-      blueA = -100;
-      blueB = -100;
+      blue = { A: -100, B: -100 };
       // 7: 0, -100: blue
       // 8: 100, -100: magenta
 
       return {
         black: d3.lab(blackL, 0, 0).hex(),
         brblack: d3.lab(brblackL, 0, 0).hex(),
-        red: d3.lab(regularL, redA, redB).hex(),
-        brred: d3.lab(brightL, redA, redB).hex(),
-        green: d3.lab(regularL, greenA, greenB).hex(),
-        brgreen: d3.lab(brightL, greenA, greenB).hex(),
-        blue: d3.lab(regularL, blueA, blueB).hex(),
-        brblue: d3.lab(brightL, blueA, blueB).hex(),
-        yellow: d3.lab(regularL, yellowA, yellowB).hex(),
-        bryellow: d3.lab(brightL, yellowA, yellowB).hex(),
-        magenta: d3.lab(regularL, magentaA, magentaB).hex(),
-        brmagenta: d3.lab(brightL, magentaA, magentaB).hex(),
-        cyan: d3.lab(regularL, cyanA, cyanB).hex(),
-        brcyan: d3.lab(brightL, cyanA, cyanB).hex(),
+        red: d3.lab(regularL, red.A, red.B).hex(),
+        brred: d3.lab(brightL, red.A, red.B).hex(),
+        green: d3.lab(regularL, green.A, green.B).hex(),
+        brgreen: d3.lab(brightL, green.A, green.B).hex(),
+        blue: d3.lab(regularL, blue.A, blue.B).hex(),
+        brblue: d3.lab(brightL, blue.A, blue.B).hex(),
+        yellow: d3.lab(regularL, yellow.A, yellow.B).hex(),
+        bryellow: d3.lab(brightL, yellow.A, yellow.B).hex(),
+        magenta: d3.lab(regularL, magenta.A, magenta.B).hex(),
+        brmagenta: d3.lab(brightL, magenta.A, magenta.B).hex(),
+        cyan: d3.lab(regularL, cyan.A, cyan.B).hex(),
+        brcyan: d3.lab(brightL, cyan.A, cyan.B).hex(),
         white: d3.lab(whiteL, 0, 0).hex(),
         brwhite: d3.lab(brwhiteL, 0, 0).hex(),
 
