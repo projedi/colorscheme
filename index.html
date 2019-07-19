@@ -1,0 +1,109 @@
+<html>
+  <body>
+    <div id='root'/>
+  <script src="https://d3js.org/d3-color.v1.min.js"></script>
+  <script>
+    function createTable(colorMap, rows, columns) {
+      var table = document.createElement('table');
+      for (r of rows) {
+        var tr = document.createElement('tr');
+        var tdLeading = document.createElement('td');
+        tdLeading.style.color = colorMap[r];
+        tdLeading.appendChild(document.createTextNode(r));
+        tr.appendChild(tdLeading);
+        for (c of columns) {
+          var td = document.createElement('td');
+          td.style.color = colorMap[c];
+          td.style.background = colorMap[r];
+          td.appendChild(document.createTextNode(c));
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+      return table;
+    }
+
+    function createColorMap() {
+      bgDarkL = fgLightL = 10;
+      selDarkL = 20;
+      blackL = 30;
+      brblackL = 40;
+      brwhiteL = 60;
+      whiteL = 70;
+      selLightL = 80;
+      bgLightL = fgDarkL = 90;
+
+      regularL = 60;
+      brightL = 80;
+      // 1
+      magentaA = 100;
+      magentaB = 0;
+      // 2
+      redA = 100;
+      redB = 100;
+      // 3
+      yellowA = 0;
+      yellowB = 100;
+      // 4
+      greenA = -100;
+      greenB = 100;
+      // 5
+      cyanA = -100;
+      cyanB = 0;
+      // 6
+      blueA = -100;
+      blueB = -100;
+      // 7: 0, -100: blue
+      // 8: 100, -100: magenta
+
+      return {
+        black: d3.lab(blackL, 0, 0).hex(),
+        brblack: d3.lab(brblackL, 0, 0).hex(),
+        red: d3.lab(regularL, redA, redB).hex(),
+        brred: d3.lab(brightL, redA, redB).hex(),
+        green: d3.lab(regularL, greenA, greenB).hex(),
+        brgreen: d3.lab(brightL, greenA, greenB).hex(),
+        blue: d3.lab(regularL, blueA, blueB).hex(),
+        brblue: d3.lab(brightL, blueA, blueB).hex(),
+        yellow: d3.lab(regularL, yellowA, yellowB).hex(),
+        bryellow: d3.lab(brightL, yellowA, yellowB).hex(),
+        magenta: d3.lab(regularL, magentaA, magentaB).hex(),
+        brmagenta: d3.lab(brightL, magentaA, magentaB).hex(),
+        cyan: d3.lab(regularL, cyanA, cyanB).hex(),
+        brcyan: d3.lab(brightL, cyanA, cyanB).hex(),
+        white: d3.lab(whiteL, 0, 0).hex(),
+        brwhite: d3.lab(brwhiteL, 0, 0).hex(),
+
+        bgDark: d3.lab(bgDarkL, 0, 0).hex(),
+        selDark: d3.lab(selDarkL, 0, 0).hex(),
+        fgDark: d3.lab(fgDarkL, 0, 0).hex(),
+
+        bgLight: d3.lab(bgLightL, 0, 0).hex(),
+        selLight: d3.lab(selLightL, 0, 0).hex(),
+        fgLight: d3.lab(fgLightL, 0, 0).hex(),
+      };
+    }
+
+    commonColors = ['selDark', 'selLight'];
+    for (x of ['black', 'red', 'blue', 'green', 'yellow', 'magenta', 'cyan', 'white']) {
+      commonColors.push(x);
+      commonColors.push('br' + x);
+    }
+    bgColors = ['bgDark', 'bgLight'];
+    fgColors = ['fgDark', 'fgLight'];
+    rows = [];
+    columns = [];
+    for (x of bgColors) {
+      rows.push(x);
+    }
+    for (x of fgColors) {
+      columns.push(x);
+    }
+    for (x of commonColors) {
+      rows.push(x);
+      columns.push(x);
+    }
+    document.getElementById('root').appendChild(createTable(createColorMap(), rows, columns));
+  </script>
+  </body>
+</html>
