@@ -1,0 +1,37 @@
+html {
+  --background-dark: black;
+  --foreground-dark: white;
+  --background-light: white;
+  --foreground-light: black;
+  --opacity-normal: 40%;
+  --opacity-bright: 70%;
+  --black: black;
+  --red: red;
+  --green: green;
+  --yellow: yellow;
+  --blue: blue;
+  --magenta: magenta;
+  --cyan: cyan;
+  --white: white;
+}
+
+#root {
+  display: flex;
+}
+
+.bg {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  font-family: monospace;
+  font-size: x-large;
+  padding: 10px;
+}
