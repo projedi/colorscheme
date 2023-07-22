@@ -13,9 +13,10 @@ function getBackgroundPalette(theme) {
 
 function getForegroundPalette(theme) {
   const palette = [undefined];
-  const modifier = "bright";
-  for (const color of COLORS) {
-    palette.push(`color-mix(in srgb, var(--${color}) var(--opacity-${modifier}), var(--background-${theme}))`);
+  for (const modifier of MODIFIERS) {
+    for (const color of COLORS) {
+      palette.push(`color-mix(in srgb, var(--${color}) var(--opacity-${modifier}), var(--background-${theme}))`);
+    }
   }
   return palette;
 }
